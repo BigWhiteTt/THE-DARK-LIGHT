@@ -642,6 +642,7 @@ GameObject:
   - component: {fileID: 143158346395489200}
   - component: {fileID: 114447288986280202}
   - component: {fileID: 114568171070379026}
+  - component: {fileID: 114774741876391172}
   m_Layer: 9
   m_Name: Magician
   m_TagString: Player
@@ -747,7 +748,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551852196472860}
   m_LocalRotation: {x: 0.008500805, y: 0.9934215, z: 0.11210659, w: 0.021766284}
-  m_LocalPosition: {x: -0.002, y: 0.7, z: 1.045}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4066988107809718}
@@ -1420,8 +1421,8 @@ Camera:
   m_GameObject: {fileID: 1551852196472860}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1447,6 +1448,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!92 &92815706997753196
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1517,6 +1519,26 @@ MonoBehaviour:
   Speed_Plus: 0
   PointPlus: 0
   playerType: 1
+--- !u!114 &114774741876391172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874647109795496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023074aa6729a284aa5781c99650e34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  normalAttackName: Attack1
+  normalAttackIdleName: Idle
+  time_normalAttack: 0.8
+  attackRate: 0.5
+  timer: 0
+  min_distance: 5
+  attack: 40
+  attackState: 1
 --- !u!124 &124640192909797314
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1533,7 +1555,6 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1549,7 +1570,6 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1622,7 +1642,6 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1638,7 +1657,6 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

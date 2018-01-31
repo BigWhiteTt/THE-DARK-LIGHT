@@ -103,6 +103,8 @@
     <Compile Include="Assets\Resources\RPG\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
     <Compile Include="Assets\Resources\RPG\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
     <Compile Include="Assets\Resources\RPG\Water Flow FREE\Scripts\WaterFlowFREEDemo.cs" />
+    <Compile Include="Assets\RPG\Effect\Effects_01\Prefebs\FollowTarget.cs" />
+    <Compile Include="Assets\RPG\Effect\Effects_02\AnimationSpeed.cs" />
     <Compile Include="Assets\Scripts\ChoiceScene\CreateCharacter.cs" />
     <Compile Include="Assets\Scripts\Custom\CursorManager.cs" />
     <Compile Include="Assets\Scripts\Custom\GlobeManager.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Assets\Scripts\PlayScene\Camera\LoadCharacter.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Camera\MoveWithPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Enemy\WolfBabyManager.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Player\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\PlayScene\SkillBar\UISkillItem.cs" />

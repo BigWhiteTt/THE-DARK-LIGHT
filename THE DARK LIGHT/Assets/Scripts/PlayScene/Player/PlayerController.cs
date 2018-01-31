@@ -17,17 +17,19 @@ public class PlayerController : MonoBehaviour {
     private bool isMoving = false;
     private Vector3 TargetPosition;
     private PlayerState state = PlayerState.Idel;
-	// Use this for initialization
-	void Start () {
+    private PlayerAttack attack;
+    // Use this for initialization
+    void Start() {
         eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         graphicRaycaster = GameObject.Find("Canvas").GetComponent<GraphicRaycaster>();
+        attack = GetComponent<PlayerAttack>();
         InstanceMouseEffect();
         TargetPosition = this.transform.position;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         DetectionClickOnGround();
         PlayerMoving();
 
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour {
         MouseEffectGO = Instantiate(MousePrefab);
         MouseEffectGO.SetActive(false);
     }
-    
+
     void HideMouseEffect()
     {
         MouseEffectGO.SetActive(false);
@@ -66,9 +68,9 @@ public class PlayerController : MonoBehaviour {
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
-            if(Physics.Raycast(ray,out hitInfo))
+            if (Physics.Raycast(ray, out hitInfo))
             {
-                if(hitInfo.collider.tag == Tags.Ground)
+                if (hitInfo.collider.tag == Tags.Ground)
                 {
                     MouseEffectGO.transform.position = hitInfo.point + new Vector3(0, 0.2f, 0);
                     MouseEffectGO.SetActive(true);
@@ -85,7 +87,7 @@ public class PlayerController : MonoBehaviour {
 
     void PlayerMoving()
     {
-        if(isMoving)
+        if (isMoving)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
@@ -98,34 +100,54 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-        if (Mathf.Abs(Vector3.Distance(this.transform.position, TargetPosition)) >= 0.5f)
+        if (attack.state == AttackState.ControlWalk)
         {
-            state = PlayerState.Move;
-            this.transform.GetComponent<CharacterController>().SimpleMove(transform.forward * 4);
-        }
-        else
-        {
-            state = PlayerState.Idel;
+            if (Mathf.Abs(Vector3.Distance(this.transform.position, TargetPosition)) >= 0.5f)
+            {
+                state = PlayerState.Move;
+                this.transform.GetComponent<CharacterController>().SimpleMove(transform.forward * 4);
+            }
+            else
+            {
+                state = PlayerState.Idel;
+            }
         }
     }
 
 
     void ChangeAnimation()
     {
-        if (state == PlayerState.Idel)
+        if (attack.state == AttackState.ControlWalk)
         {
-            PlayAnimation("Idle");
-        }
-        else if (state == PlayerState.Move)
+            if (state == PlayerState.Idel)
+            {
+                PlayAnimation("Idle");
+            }
+            else if (state == PlayerState.Move)
+            {
+                PlayAnimation("Walk", 3);
+            }
+        }else if(attack.state == AttackState.NormalAttack)
         {
-            PlayAnimation("Walk",3);
+            if(attack.attackState == InAttack.Move)
+            {
+                PlayAnimation("Walk", 3);
+            }
         }
-        }
+
+
+    }
    
     void PlayAnimation(string animationName,int animationPlaySpeed = 1)
     {
         this.transform.GetComponent<Animation>().CrossFade(animationName);
         this.transform.GetComponent<Animation>()[animationName].speed = animationPlaySpeed;
+    }
+
+    public void SimpleMove(Vector3 position)
+    {
+        transform.LookAt(position);
+        this.transform.GetComponent<CharacterController>().SimpleMove(transform.forward * 4);
     }
 
 }

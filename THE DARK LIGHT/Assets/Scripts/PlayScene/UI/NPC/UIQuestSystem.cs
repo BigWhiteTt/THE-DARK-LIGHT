@@ -4,12 +4,17 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class UIQuestSystem : UIManager {
+    public static UIQuestSystem Instance;
     public GameObject questPanel;
     public int KillCount = 0;
-    private int TargetCount = 10;
+    private int TargetCount = 3;
     private Transform Player;
     private Vector3 OriginalQuesePanelPos;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         OriginalQuesePanelPos = questPanel.transform.position;
@@ -44,7 +49,7 @@ public class UIQuestSystem : UIManager {
         questPanel.transform.Find("Accept").gameObject.SetActive(false);
         questPanel.transform.Find("Cancel").gameObject.SetActive(false);
         questPanel.transform.Find("Schedule").gameObject.SetActive(true);
-        questPanel.transform.Find("Schedule").GetComponent<Text>().text = "您已经击杀"+0+"/"+TargetCount+"只小狼";
+        questPanel.transform.Find("Schedule").GetComponent<Text>().text = "您已经击杀"+ KillCount + "/"+TargetCount+"只小狼";
         questPanel.transform.Find("OK").gameObject.SetActive(true);
     }
 

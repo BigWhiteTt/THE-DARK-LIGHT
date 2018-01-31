@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 143429697931769660}
   m_Layer: 0
   m_Name: WolfBaby
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,7 +775,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494209301332272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7498592, y: 11.512217, z: 0.04143524}
+  m_LocalPosition: {x: 1.7498592, y: 11.512217, z: 21.571}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4796910076461600}
@@ -1193,6 +1193,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wolfState: 0
   redTime: 1
+  hp: 100
+  attack: 5
+  maxAttackDistance: 1.5
+  maxFindDistance: 3
   miss: {fileID: 1716604872279706}
 --- !u!137 &137754433472821778
 SkinnedMeshRenderer:
@@ -1203,7 +1207,6 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1219,7 +1222,6 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1319,7 +1321,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168448576733108}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.57899857, z: 0.48}
+  m_LocalPosition: {x: 0, y: 0, z: 0.48}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 224392891506525858}
@@ -1338,7 +1340,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1716604872279706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20999908, y: 48.24, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224169648163665492}
