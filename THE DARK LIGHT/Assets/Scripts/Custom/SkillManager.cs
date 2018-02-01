@@ -115,6 +115,10 @@ public class SkillManager : MonoBehaviour {
             info.releaseType = release;
 
             info.releaseDistance = float.Parse(properties[13]);
+
+            info.effectName = properties[14];
+            info.aniName = properties[15];
+            info.aniTime = float.Parse(properties[16]);
             skillInfo.Add(info.id, info);
         }
     }
@@ -169,4 +173,7 @@ public class SkillInfo
     public int level;
     public ReleaseType releaseType;
     public float releaseDistance;
+    public string effectName;
+    public string aniName;
+    public float aniTime = 0;
 }

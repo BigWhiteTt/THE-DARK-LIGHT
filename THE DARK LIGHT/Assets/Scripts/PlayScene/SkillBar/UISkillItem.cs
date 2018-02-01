@@ -13,11 +13,13 @@ public class UISkillItem : MonoBehaviour, IPointerClickHandler
     public Image ColdMask;
     public bool CanUse;
     private float timer;
+    private PlayerAttack playerAttack;
 
     private void Start()
     {
         timer = 0;
         CanUse = true;
+        playerAttack = GameObject.FindGameObjectWithTag(Tags.Player).GetComponent<PlayerAttack>();
     }
 
     private void Update()
@@ -40,8 +42,17 @@ public class UISkillItem : MonoBehaviour, IPointerClickHandler
 
     public void UseSkill()
     {
-        timer = skillInfo.coldTime;
-        ColdMask.fillAmount = 1;
+        bool canUse = PlayerStatus.Instance.ReduceMp(skillInfo.mp);
+        if (canUse)
+        {
+            playerAttack.UseSkill(skillInfo);
+            timer = skillInfo.coldTime;
+            ColdMask.fillAmount = 1;
+        }
+        else
+        {
+            Debug.LogError("MP 不足！");
+        }
     }
     
     public void OnPointerClick(PointerEventData eventData)

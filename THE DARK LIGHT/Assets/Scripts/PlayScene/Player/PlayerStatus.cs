@@ -174,10 +174,18 @@ public class PlayerStatus : MonoBehaviour {
         Mp += mp;
         UIPlayerStatus.Instance.UpdateMp();
     }
-    public void ReduceMp(int mp)
+    public bool ReduceMp(int mp)
     {
-        Mp -= mp;
-        UIPlayerStatus.Instance.UpdateMp();
+        if (mp <= Mp)
+        {
+            Mp -= mp;
+            UIPlayerStatus.Instance.UpdateMp();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     private void Awake()
     {

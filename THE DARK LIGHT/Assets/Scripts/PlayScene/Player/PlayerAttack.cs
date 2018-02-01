@@ -33,6 +33,8 @@ public class PlayerAttack : MonoBehaviour
     private PlayerController control;
     private Animation animation1;
     private bool ShowEffect = false;
+
+    public GameObject[] effectArray;
     // Use this for initialization
     void Start()
     {
@@ -107,5 +109,10 @@ public class PlayerAttack : MonoBehaviour
     {
         attack = PlayerStatus.Instance.Attack + PlayerStatus.Instance.Attack_Plus;
         return attack;
+    }
+
+    public void UseSkill(SkillInfo info)
+    {
+
     }
 }
