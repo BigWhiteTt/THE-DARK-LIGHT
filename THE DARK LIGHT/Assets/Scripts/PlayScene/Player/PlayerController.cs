@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
     void DetectionClickOnGround()
     {
         if (CheckGuiRaycastObjects()) return;
-        if (Input.GetMouseButtonDown(0))
+        if (attack.isLock==false&& Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;

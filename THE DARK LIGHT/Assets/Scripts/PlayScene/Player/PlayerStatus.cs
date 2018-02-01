@@ -92,26 +92,32 @@ public class PlayerStatus : MonoBehaviour {
     public void GetAttack(int i = 1)
     {
         Attack_Plus+=i;
+        UIStatus.Instacne.UpdateOriginalProperties();
     }
     public void GetDefence(int i = 1)
     {
         Defence_Plus+=i;
+        UIStatus.Instacne.UpdateOriginalProperties();
     }
     public void GetSpeed(int i = 1)
     {
         Speed_Plus+=i;
+        UIStatus.Instacne.UpdateOriginalProperties();
     }
     public void ReduceAttack(int i = 1)
     {
         Attack_Plus -= i;
+        UIStatus.Instacne.UpdateOriginalProperties();
     }
     public void ReduceDefence(int i = 1)
     {
         Defence_Plus -= i;
+        UIStatus.Instacne.UpdateOriginalProperties();
     }
     public void ReduceSpeed(int i = 1)
     {
         Speed_Plus -= i;
+        UIStatus.Instacne.UpdateOriginalProperties();
     }
     public bool ReducePointPlus()
     {
@@ -202,17 +208,9 @@ public class PlayerStatus : MonoBehaviour {
         {
             AddHp(10);
         }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            ReduceHp(10);
-        }
         if (Input.GetKeyDown(KeyCode.B))
         {
             AddMp(10);
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            ReduceMp(10);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {

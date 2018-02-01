@@ -6,7 +6,7 @@ public class LoadCharacter : MonoBehaviour {
     public GameObject[] characterPref;
 	// Use this for initialization
 	void Start () {
-       // LoadPlayer();
+        LoadPlayer();
         InstanceSomeThing();
     }
 	

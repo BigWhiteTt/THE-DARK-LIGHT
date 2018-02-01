@@ -49,11 +49,17 @@ public class WolfBabyManager : MonoBehaviour {
 
     private void OnMouseEnter()
     {
-        CursorManager.Instance.SetAttack();
+        if (PlayerAttack.Instance.isLock == false)
+        {
+            CursorManager.Instance.SetAttack();
+        }
     }
     private void OnMouseExit()
     {
-        CursorManager.Instance.SetNormal();
+        if (PlayerAttack.Instance.isLock == false)
+        {
+            CursorManager.Instance.SetNormal();
+        }
     }
     // Use this for initialization
     void Start () {
@@ -190,10 +196,10 @@ public class WolfBabyManager : MonoBehaviour {
             StartCoroutine("ShowBodyRed", time);
             if (hp <= 0)
             {
-                PlayerStatus.Instance.AddExp(50);
+                PlayerStatus.Instance.AddExp(20);
                 UIQuestSystem.Instance.KillCount++;
                 wolfState = WolfState.Death;
-                Destroy(this.gameObject, 2);
+                Destroy(this.gameObject, 0.5f);
             }
         } 
     }

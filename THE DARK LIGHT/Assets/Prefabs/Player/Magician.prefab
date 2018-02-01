@@ -1539,6 +1539,14 @@ MonoBehaviour:
   min_distance: 5
   attack: 40
   attackState: 1
+  effectArray:
+  - {fileID: 100000, guid: d5403793b83de7648b0c33ad35e4d64e, type: 2}
+  - {fileID: 100000, guid: 8e361bb418b94ad4bb22c22c7800a8c2, type: 2}
+  - {fileID: 100010, guid: b8935c0c5eb2164488a7361193f7c2f2, type: 2}
+  - {fileID: 100008, guid: 21596ca0707bc404d897fddd6b68a1ba, type: 2}
+  - {fileID: 100002, guid: 7c16394cbab24a443b83dc7c08602b65, type: 2}
+  - {fileID: 100000, guid: ab3aaa54f2febe14bbee4311665bfdda, type: 2}
+  isLock: 0
 --- !u!124 &124640192909797314
 Behaviour:
   m_ObjectHideFlags: 1
